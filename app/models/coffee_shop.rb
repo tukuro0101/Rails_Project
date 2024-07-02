@@ -22,6 +22,17 @@ class CoffeeShop < ApplicationRecord
  validates :description, presence: true, length: { minimum: 10 }
 
 
+
+
  #3.5
  paginates_per 10
+
+ #4.2
+ before_save :format_rating
+
+ private
+
+  def format_rating
+    self.rating = rating.round(1)
+  end
 end

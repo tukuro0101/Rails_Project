@@ -2,6 +2,14 @@
 
 <h1>Coffee Shops</h1>
 
+<%= form_with url: coffee_shops_path, method: :get, local: true do %>
+  <%= label_tag :keyword, "Search:" %>
+  <%= text_field_tag :keyword, @keyword %>
+  <%= label_tag :rating_filter, "Filter by Rating:" %>
+  <%= select_tag :rating_filter, options_for_select([["All", ""], ["1-2", "1-2"], ["3-4", "3-4"], ["4-5", "4-5"]], selected: @rating_filter) %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -27,7 +35,10 @@
     <% end %>
   </tbody>
 </table>
+
 <%= paginate @coffee_shops %>
+
+
 <br>
 
 <%= link_to 'New Coffee Shop', new_coffee_shop_path %>

@@ -3,7 +3,27 @@ class CoffeeShopsController < ApplicationController
 
   # GET /coffee_shops or /coffee_shops.json
   def index
-    @coffee_shops = CoffeeShop.page(params[:page])
+    @rating_filter = params[:rating_filter]
+    @keyword = params[:keyword]
+
+    @coffee_shops = CoffeeShop.all
+
+    if @rating_filter.present?
+      case @rating_filter
+      when "1-2"
+        @coffee_shops = @coffee_shops.where(rating: 1.0..2.0)
+      when "3-4"
+        @coffee_shops = @coffee_shops.where(rating: 3.0..4.0)
+      when "4-5"
+        @coffee_shops = @coffee_shops.where(rating: 4.0..5.0)
+      end
+    end
+
+    if @keyword.present?
+      @coffee_shops = @coffee_shops.where("name LIKE ?", "%#{@keyword}%")
+    end
+
+    @coffee_shops = @coffee_shops.page(params[:page])
   end
 
   # GET /coffee_shops/1 or /coffee_shops/1.json

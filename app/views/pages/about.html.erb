@@ -1,4 +1,37 @@
-<h1>About Our Coffee Shop Database</h1>
-<p>This application collects and displays data about coffee shops, customers, and reviews. The data is generated using the Faker gem.</p>
-<h2>ERD Diagram</h2>
-<img src="/ERD.png" alt="ERD Diagram">
+<h1>About Our Coffee Shop Review Application</h1>
+
+<p>Welcome to our Coffee Shop Review application! Here you can explore various coffee shops, see ratings and reviews from other customers, and even share your own experiences.</p>
+
+<h2>Datasets and Description</h2>
+
+<p>Our application utilizes three main datasets: Coffee Shops, Customers, and Reviews. Below is a detailed description of each dataset, including the structure and how they are related.</p>
+
+<h3>Coffee Shops</h3>
+<p>This dataset contains information about various coffee shops, including their names, locations, ratings, and descriptions.</p>
+<ul>
+  <li><strong>id:</strong> Integer, primary key, unique identifier for each coffee shop.</li>
+  <li><strong>name:</strong> String, the name of the coffee shop.</li>
+  <li><strong>location:</strong> String, the full address of the coffee shop.</li>
+  <li><strong>rating:</strong> Float, the rating of the coffee shop on a scale of 1.0 to 5.0.</li>
+  <li><strong>description:</strong> Text, a brief description or notes about the coffee shop.</li>
+</ul>
+
+<h3>Customers</h3>
+<p>This dataset includes information about customers who visit the coffee shops. It contains their personal information and their favorite coffee shop.</p>
+<ul>
+  <li><strong>id:</strong> Integer, primary key, unique identifier for each customer.</li>
+  <li><strong>first_name:</strong> String, the first name of the customer.</li>
+  <li><strong>last_name:</strong> String, the last name of the customer.</li>
+  <li><strong>email:</strong> String, the email address of the customer.</li>
+  <li><strong>favorite_coffee_shop_id:</strong> Integer, foreign key referencing the id of the coffee shop that is the customer's favorite.</li>
+</ul>
+
+<h3>Reviews</h3>
+<p>This dataset records reviews written by customers for various coffee shops. Each review includes a rating and a comment.</p>
+<ul>
+  <li><strong>id:</strong> Integer, primary key, unique identifier for each review.</li>
+  <li><strong>customer_id:</strong> Integer, foreign key referencing the id of the customer who wrote the review.</li>
+  <li><strong>coffee_shop_id:</strong> Integer, foreign key referencing the id of the coffee shop being reviewed.</li>
+  <li><strong>rating:</strong> Integer, the rating given by the customer to the coffee shop, on a scale of 1 to 5.</li>
+  <li><strong>comment:</strong> Text, the review comment provided by the customer.</li>
+</ul>

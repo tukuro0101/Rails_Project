@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ .top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff; /* Change this to your desired background color */
+    border-bottom: 1px solid #ddd; /* Optional: Adds a bottom border to separate the nav from the content */
+    padding: 10px 0; /* Adjust padding as needed */
+    z-index: 1000; /* Ensures the nav stays on top of other content */
+    text-align: center; /* Centers the nav links */
+  }
+  
+  body {
+    padding-top: 60px; /* Adjust this padding to match the height of your navigation bar */
+  }
+  

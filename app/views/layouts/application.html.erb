@@ -11,13 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
-    <nav>
-  <%= link_to 'About', root_path %> |
-  <%= link_to 'Coffee Shops', coffee_shops_path %> |
-  <%= link_to 'Customers', customers_path %> |
-  <%= link_to 'Reviews', reviews_path %>
-</nav>
+  <nav class="top-nav">
+    <%= link_to 'About', root_path %> |
+    <%= link_to 'Coffee Shops', coffee_shops_path %> |
+    <%= link_to 'Customers', customers_path %> |
+    <%= link_to 'Reviews', reviews_path %>
+  </nav>
+  <%= yield %>
+</body>
 
-  </body>
 </html>
