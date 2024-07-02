@@ -20,5 +20,10 @@
   <%= @coffee_shop.description %>
 </p>
 
+<h2>Reviews:</h2>
+<% @coffee_shop.reviews.each do |review| %>
+  <p><%= review.customer.first_name %> <%= review.customer.last_name %>: <%= review.comment %> (Rating: <%= review.rating %>)</p>
+<% end %>
+
 <%= link_to 'Edit', edit_coffee_shop_path(@coffee_shop) %> |
 <%= link_to 'Back', coffee_shops_path %>
