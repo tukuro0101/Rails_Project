@@ -1,5 +1,6 @@
 class CoffeeShop < ApplicationRecord
   has_many :reviews
+  # A coffee shop can have many reviews (1 to many) 1.4
   has_many :customers, through: :reviews
 
   validates :name, presence: true, uniqueness: true
