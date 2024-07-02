@@ -5,7 +5,13 @@ class Customer < ApplicationRecord
    # A customer can have many reviewed coffee shops through reviews (many-to-many) 1.5
   has_many :reviewed_coffee_shops, through: :reviews, source: :coffee_shop
 
-  validates :first_name, presence: true, length: { minimum: 2 }
-  validates :last_name, presence: true, length: { minimum: 2 }
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  #1.6 validations
+ # First name must be present and at least 2 characters long
+ validates :first_name, presence: true, length: { minimum: 2 }
+
+ # Last name must be present and at least 2 characters long
+ validates :last_name, presence: true, length: { minimum: 2 }
+
+ # Email must be present, unique, and follow a valid email format
+ validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 end

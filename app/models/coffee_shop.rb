@@ -5,8 +5,16 @@ class CoffeeShop < ApplicationRecord
    # A coffee shop can have many customers through reviews (many-to-many) 1.5
   has_many :customers, through: :reviews
 
+  #1.6 validations
+  # Name must be present and unique
   validates :name, presence: true, uniqueness: true
+
+  # Location must be present
   validates :location, presence: true
+
+  # Rating must be present and a number between 0 and 5
   validates :rating, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+
+  # Description must be present and at least 10 characters long
   validates :description, presence: true, length: { minimum: 10 }
 end
