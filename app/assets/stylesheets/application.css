@@ -27,4 +27,10 @@
   body {
     padding-top: 60px; /* Adjust this padding to match the height of your navigation bar */
   }
+  .my-image {
+    width: 500px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Optional border */
+    margin: 20px 0; /* Optional margin */
+  }
   
