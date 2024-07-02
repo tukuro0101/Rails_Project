@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2024_07_02_085547) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "favorite_coffee_shop_id", null: false
+    t.integer "favorite_coffee_shop_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorite_coffee_shop_id"], name: "index_customers_on_favorite_coffee_shop_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2024_07_02_085547) do
     t.index ["customer_id"], name: "index_reviews_on_customer_id"
   end
 
-  add_foreign_key "customers", "favorite_coffee_shops"
+  add_foreign_key "customers", "coffee_shops", column: "favorite_coffee_shop_id"
   add_foreign_key "reviews", "coffee_shops"
   add_foreign_key "reviews", "customers"
 end

@@ -5,6 +5,9 @@ class CoffeeShop < ApplicationRecord
    # A coffee shop can have many customers through reviews (many-to-many) 1.5
   has_many :customers, through: :reviews
 
+   # A coffee shop can have many customers as their favorite coffee shop
+  has_many :favorited_by_customers, class_name: 'Customer', foreign_key: 'favorite_coffee_shop_id'
+
   #1.6 validations
   # Name must be present and unique
   validates :name, presence: true, uniqueness: true
