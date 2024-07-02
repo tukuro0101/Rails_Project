@@ -20,4 +20,8 @@ class CoffeeShop < ApplicationRecord
 
  # Description must be present and at least 10 characters long
  validates :description, presence: true, length: { minimum: 10 }
+
+
+ #3.5
+ paginates_per 10
 end

@@ -3,7 +3,7 @@ class CoffeeShopsController < ApplicationController
 
   # GET /coffee_shops or /coffee_shops.json
   def index
-    @coffee_shops = CoffeeShop.all
+    @coffee_shops = CoffeeShop.page(params[:page])
   end
 
   # GET /coffee_shops/1 or /coffee_shops/1.json

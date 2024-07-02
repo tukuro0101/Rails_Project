@@ -14,4 +14,8 @@ class Review < ApplicationRecord
 
   # Ensure a customer can only leave one review per coffee shop
   validates :customer_id, uniqueness: { scope: :coffee_shop_id, message: "has already reviewed this coffee shop" }
+
+
+  #3.5
+  paginates_per 10
 end

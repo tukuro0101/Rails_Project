@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  belongs_to :favorite_coffee_shop, class_name: 'CoffeeShop'
+  belongs_to :favorite_coffee_shop, class_name: 'CoffeeShop', optional: true
    # A customer can have many reviews (one-to-many) 1.5
   has_many :reviews
    # A customer can have many reviewed coffee shops through reviews (many-to-many) 1.5
@@ -14,4 +14,7 @@ class Customer < ApplicationRecord
 
  # Email must be present, unique, and follow a valid email format
  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+ #3.5
+ paginates_per 10
 end
