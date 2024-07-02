@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coffee Shops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coffee_shops.each do |coffee_shop| %>
+      <tr>
+        <td><%= coffee_shop.name %></td>
+        <td><%= coffee_shop.location %></td>
+        <td><%= coffee_shop.rating %></td>
+        <td><%= coffee_shop.description %></td>
+        <td><%= link_to 'Show', coffee_shop %></td>
+        <td><%= link_to 'Edit', edit_coffee_shop_path(coffee_shop) %></td>
+        <td><%= link_to 'Destroy', coffee_shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coffee Shop', new_coffee_shop_path %>
