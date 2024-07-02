@@ -20,5 +20,12 @@
   <%= @review.comment %>
 </p>
 
+<h1>Review for <%= @review.coffee_shop.name %></h1>
+<p>Rating: <%= @review.rating %></p>
+<p>Comment: <%= @review.comment %></p>
+<p>Reviewer: <%= link_to @review.customer.first_name + " " + @review.customer.last_name, @review.customer %></p>
+<p>Coffee Shop: <%= link_to @review.coffee_shop.name, @review.coffee_shop %></p>
+
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
